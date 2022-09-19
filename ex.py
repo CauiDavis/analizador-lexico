@@ -45,5 +45,13 @@ class lexico:
     
     def __q0(self):
         self.__caracter = self.__obter_caracter()
-        if 'r' == self.__caracter:
+        if 'a' == self.__caracter or 'b' == self.__caracter:
+            self.__q0()
+        if 'b' == self.__caracter:
             self.__q1()
+    def __q1(self):
+        if 'a' == self.__caracter:
+            self.__q2()
+    def __q2(self):
+        if 'b' == self.__caracter:
+    
