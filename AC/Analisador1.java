@@ -43,6 +43,9 @@ public class Analisador1{
                     text += caracterAtual;
                     if(seCharABC(caracterAtual)){
                         if(caracterAtual == 'a'){
+                            estado = 0;
+                        }
+                        if(caracterAtual == 'b'){
                             estado = 1;
                         }
                     }
@@ -64,12 +67,14 @@ public class Analisador1{
                         throw new RuntimeException("Caracter nao reconhecido");
                     }
                     break;
-
                 case 1:
                     if(seCharABC(caracterAtual)){
                         text += caracterAtual;
                         if(caracterAtual == 'a'){
                             estado = 2;
+                        }
+                        if(caracterAtual == 'b'){
+                            estado = 1;
                         }
                         else{
                             estado = 0;
@@ -79,14 +84,31 @@ public class Analisador1{
                         estado = 0;
                     }
                     break;
-
                 case 2: // estado de salvação
                     if(seCharABC(caracterAtual)){
                         text += caracterAtual;
                         if(caracterAtual == 'b'){
                             estado = 3;
                         }
-                        
+                        if(caracterAtual == 'a'){
+                            estado = 0;
+                            voltar2();
+                        }
+                    }
+                    else{
+                        estado = 0;
+                    }
+                    break;
+                case 3:
+                    if(seCharABC(caracterAtual)){
+                        text += caracterAtual;
+                        if(caracterAtual == 'a'){
+                            estado = 2;
+                            voltar();
+                        }
+                        if(caracterAtual == 'b'){
+                            estado = 3;
+                        }
                     }
                     else{
                         Token token = new Token();
@@ -94,22 +116,7 @@ public class Analisador1{
                         token.setValor(text);
                         return token;
                     }
-                case 3:
-                    if(seCharABC(caracterAtual)){
-                        text += caracterAtual;
-                        if(caracterAtual == 'c'){
-                            estado = 2;
-                            voltar();
-                        }
-                        else{
-                            estado = 0;
-                        }
-                    }
-                    else{
-                        estado = 0;
-                    }
                     break;
-
                 case 4:
                     if(seCharABC(caracterAtual)){
                         text += caracterAtual;
@@ -141,15 +148,18 @@ public class Analisador1{
     }
 
     private boolean seCharABC(char c){
-        return (c == 'a' || c == 'b' || c == 'c');
+        return (c == 'a' || c == 'b');
     }
 
     private boolean seChar(char c){
-        return ((c >= 'd' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+        return ((c >= 'c' && c <= 'z') || (c >= 'A' && c <= 'Z'));
     }
 
     private void voltar(){
         posicao--;
+    }
+    private void voltar2(){
+        posicao -= 2;
     }
 
     private boolean seNumero(char c){

@@ -111,7 +111,7 @@ public class Analisador{
                         }
                         else if(caracterAtual == 'c'){
                             estado = 2;
-                            voltar();
+                            
                         }
                         else{
                             estado = 0;

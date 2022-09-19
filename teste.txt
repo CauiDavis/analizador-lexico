@@ -1,4 +1,6 @@
+bab
 aa
+bab
 aabc
 abcc
 abcbcbca
