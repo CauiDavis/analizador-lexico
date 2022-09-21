@@ -1,8 +1,8 @@
 import AC.Token;
-import AC.Analisador;
-public class Main {
+import AC.Analisador1;
+public class Main1 {
     public static void main(String args[]) {
-        Analisador analex = new Analisador("teste.txt");
+        Analisador1 analex = new Analisador1("teste.txt");
 
         Token token = null;
 

@@ -1,7 +1,7 @@
 package AC;
 
 public class Token {
-    public static final int CADEIA = 1;
+    public static final int identificador = 1;
 
     private String valor;
     private int tipo;
@@ -34,9 +34,17 @@ public class Token {
     
     @Override
     public String toString(){
+        if(tipo == 1){
         return "Token{" +
+                "type=" + tipo +
+                ",identificador, text='" + valor + '\'' +
+                '}';
+        }
+        else{
+            return "Token{" +
                 "type=" + tipo +
                 ", text='" + valor + '\'' +
                 '}';
+        }
     }
 }

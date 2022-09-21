@@ -110,7 +110,7 @@ public class Analisador1{
                     }
                     else{
                         Token token = new Token();
-                        token.setTipo(Token.CADEIA);
+                        token.setTipo(Token.identificador);
                         token.setValor(text);
                         return token;
                     }

@@ -82,9 +82,9 @@ public class Analisador{
                     }
                     break;
 
-                case 2: // estado de salvação
+                case 2: 
                     Token token = new Token();
-                    token.setTipo(Token.CADEIA);
+                    token.setTipo(Token.identificador);
                     token.setValor(text);
                     return token;
 
@@ -111,7 +111,7 @@ public class Analisador{
                         }
                         else if(caracterAtual == 'c'){
                             estado = 2;
-                            
+                           
                         }
                         else{
                             estado = 0;
