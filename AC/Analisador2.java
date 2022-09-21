@@ -3,13 +3,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Analisador{
+public class Analisador2{
     char[] conteudo;
     private int estado;
     private int posicao;
     private String text = "";
    
-    public Analisador(String fileName){
+    public Analisador2(String fileName){
         try {
             String txtConteudo;
             posicao = 0;
