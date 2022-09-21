@@ -50,10 +50,22 @@ public class Analisador1{
                         }
                     }
                     else if(seChar(caracterAtual)){
-                        break;
+                        Token token = new Token();
+                        token.setTipo(Token.identificador);
+                        token.setValor(text);
+                        return token;
                     }
                     else if(seNumero(caracterAtual)){
-                        break;
+                        Token token = new Token();
+                        token.setTipo(Token.digito);
+                        token.setValor(text);
+                        return token;
+                    }
+                    else if(opr(caracterAtual)){
+                        Token token = new Token();
+                        token.setTipo(Token.operador);
+                        token.setValor(text);
+                        return token;
                     }
                     else if(seEspaco(caracterAtual)){
                         text = "";
@@ -110,7 +122,7 @@ public class Analisador1{
                     }
                     else{
                         Token token = new Token();
-                        token.setTipo(Token.identificador);
+                        token.setTipo(Token.palavra_reservada);
                         token.setValor(text);
                         return token;
                     }
@@ -135,8 +147,8 @@ public class Analisador1{
         return ((c >= 'c' && c <= 'z') || (c >= 'A' && c <= 'Z'));
     }
 
-    private void voltar(){
-        posicao--;
+    private boolean opr(char c){
+        return (c == '+' || c == '-' || c == '*' || c == '/' || c == '>' || c == '<' || c == '=');
     }
 
     private boolean seNumero(char c){

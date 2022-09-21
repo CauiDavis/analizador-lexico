@@ -2,6 +2,9 @@ package AC;
 
 public class Token {
     public static final int identificador = 1;
+    public static final int palavra_reservada = 2;
+    public static final int operador = 3;
+    public static final int digito = 4;
 
     private String valor;
     private int tipo;
@@ -35,9 +38,27 @@ public class Token {
     @Override
     public String toString(){
         if(tipo == 1){
-        return "Token{" +
+            return "Token{" +
                 "type=" + tipo +
                 ",identificador, text='" + valor + '\'' +
+                '}';
+        }
+        else if(tipo == 2){
+            return "Token{" +
+                "type=" + tipo +
+                ",palavra_reservada, text='" + valor + '\'' +
+                '}';
+        }
+        else if(tipo == 3){
+            return "Token{" +
+                "type=" + tipo +
+                ",operador, text='" + valor + '\'' +
+                '}';
+        }
+        else if(tipo == 4){
+            return "Token{" +
+                "type=" + tipo +
+                ",digito, text='" + valor + '\'' +
                 '}';
         }
         else{
