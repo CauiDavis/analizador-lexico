@@ -2,7 +2,7 @@ package AC;
 
 public class Token {
     public static final int identificador = 1;
-    public static final int palavra_reservada = 2;
+    public static final int nao_reconhecida = 2;
     public static final int operador = 3;
     public static final int digito = 4;
 
@@ -46,7 +46,7 @@ public class Token {
         else if(tipo == 2){
             return "Token{" +
                 "type=" + tipo +
-                ",palavra_reservada, text='" + valor + '\'' +
+                ",nao reconhecida, text='" + valor + '\'' +
                 '}';
         }
         else if(tipo == 3){

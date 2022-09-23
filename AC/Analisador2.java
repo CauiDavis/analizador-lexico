@@ -47,7 +47,7 @@ public class Analisador2{
                     }
                     else if(seChar(caracterAtual)){
                         Token token = new Token();
-                        token.setTipo(Token.identificador);
+                        token.setTipo(Token.nao_reconhecida);
                         token.setValor(text);
                         return token;
                     }
@@ -96,7 +96,7 @@ public class Analisador2{
 
                 case 2: 
                     Token token = new Token();
-                    token.setTipo(Token.palavra_reservada);
+                    token.setTipo(Token.identificador);
                     token.setValor(text);
                     return token;
 
